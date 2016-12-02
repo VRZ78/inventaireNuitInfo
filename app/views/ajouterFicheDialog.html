@@ -1,0 +1,29 @@
+<md-dialog flex="45">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>Add your family</h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <md-content class="md-no-momentum" layout-margin>
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Name</label>
+            <input ng-model="fiche.nom" type="text">
+        </md-input-container>
+
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Description</label>
+            <textarea ng-model="fiche.description" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+        </md-input-container>
+
+
+        <md-button style="float:right" ng-click="submitAddFiche($event)" class="md-fab md-mini" aria-label="Eat cake">
+            <md-icon md-svg-src="icons/ic_done_white_24px.svg"></md-icon>
+        </md-button>
+
+
+    </md-content>
+</md-dialog>

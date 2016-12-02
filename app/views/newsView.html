@@ -1,0 +1,16 @@
+<md-dialog aria-label>
+    <md-dialog-content >
+        
+        <md-toolbar class="md-primary md-hue-3">
+            <div layout class="md-toolbar-tools">
+                <span><h2>{{article.name}}</h2></span>
+                <div flex></div>
+            </div>
+        </md-toolbar>
+        <div>
+            <img ng-src="{{article.image.contentUrl}}" layout-fill>
+            <p layout-margin>{{article.description}}</p>
+        </div>
+
+    </md-dialog-content>
+</md-dialog>

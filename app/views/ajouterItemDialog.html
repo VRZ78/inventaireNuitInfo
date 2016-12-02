@@ -1,0 +1,71 @@
+<md-dialog flex="45">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>Add item</h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <span layout-margin>Cliquez sur rechercher une image et sélectionnez en une pour remplir les champs automatiquement</span>
+
+    <md-content class="md-no-momentum" layout-margin>
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Name</label>
+            <input ng-model="item.nom" type="text">
+        </md-input-container>
+
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Description</label>
+            <textarea ng-model="item.description" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+        </md-input-container>
+
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Recherche d'image</label>
+            <input ng-model="item.lien_image" md-select-on-focus>
+            <md-button ng-click="findPic()" class="md-raised md-primary md-cornered">
+                <span>Rechercher</span>
+            </md-button>
+        </md-input-container>
+<!--
+        <div ng-repeat="result in results track by $index| limitTo:5">
+            <img ng-click="fillForm($index)" ng-src="{{result.contentUrl}}">
+        </div>-->
+
+        <!--Début GridList-->
+        <md-grid-list
+                md-cols-xs="3" md-cols-sm="4" md-cols-md="5" md-cols-gt-md="5"
+                md-row-height-gt-md="1:1" md-row-height="2:2"
+                md-gutter="12px" md-gutter-gt-sm="8px" >
+            <md-grid-tile ng-repeat="result in results track by $index"
+                          md-rowspan="{{}}"
+                          md-colspan="{{}}"
+            >
+                <!--<md-grid-tile-header style="color:black;background: {{letter.color}}">
+
+                </md-grid-tile-header>-->
+                <!--<img ng-src="{{letter.picture}}" layout-fill>-->
+                <img ng-click="fillForm($index)" ng-src="{{result.contentUrl}}" layout-fill>
+            </md-grid-tile>
+        </md-grid-list>
+        <!--Fin GRIDLIST-->
+
+
+        <md-input-container class="md-icon-float md-block" flex-gt-sm>
+
+            <label>Categorie</label>
+            <input ng-model="item.categorie" md-select-on-focus>
+
+
+        </md-input-container>
+
+
+        <md-button style="float:right" ng-click="submitAddFiche($event)" class="md-fab md-mini" aria-label="Eat cake">
+            <md-icon md-svg-src="icons/ic_done_white_24px.svg"></md-icon>
+        </md-button>
+
+
+    </md-content>
+</md-dialog>

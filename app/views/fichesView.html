@@ -1,0 +1,120 @@
+
+<md-toolbar>
+    <div class="md-toolbar-tools" md-whiteframe="2">
+        <h2>Nuit de l'info</h2>
+        <div flex></div>
+        <md-button ng-click="showAlert($event)" class="md-icon-button">
+            <md-icon md-svg-icon="icons/add.svg"></md-icon>
+        </md-button>
+        <md-button ng-click="logout()" class="md-icon-button">
+            <md-icon md-svg-icon="icons/logout.svg"></md-icon>
+        </md-button>
+
+    </div>
+</md-toolbar>
+
+<div flex layout="column">
+    <md-table-container>
+        <table md-table>
+            <thead md-head md-order="autoOrder">
+            <tr md-row>
+                <th md-column md-order-by="nom">Lastname</th>
+                <th md-column md-order-by="description">Description</th>
+                <th md-column md-order-by="update">Last Update</th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row ng-repeat="famille in familles | orderBy:autoOrder" md-select="famille" md-select-id="id" md-auto-select>
+                <td md-cell ng-click="goToListes(famille)">{{famille.nom}}</td>
+                <td md-cell ng-click="goToListes(famille)">{{famille.description}}</td>
+                <td md-cell ng-click="goToListes(famille)">{{famille.update}}</td>
+                <td md-cell></td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+</div>
+
+<hr>
+
+<md-content class="md-no-momentum" layout-align="center center">
+    <h4>Search Engine</h4>
+    <form ng-submit="go()">
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Search</label>
+            <input ng-model="recherche" type="text" required ng-minlength="2" ng-maxlength="30">
+        </md-input-container>
+    </form>
+
+    <md-button ng-click="go()" class="md-raised md-primary md-cornered">Search</md-button>
+
+    <div ng-show="bool">
+        <md-content>
+            <md-list>
+                <md-list-item class="md-3-line" ng-repeat="new in news">
+                    <div class="md-list-item-text" ng-click="show(new)">
+                        <h4>{{new.datePublished | date}}</h4>
+                        <p>{{new.description}}</p>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-content>
+
+        <h3 >Images</h3>
+        <!--Début GridList-->
+        <md-grid-list
+                md-cols-xs="3" md-cols-sm="4" md-cols-md="5" md-cols-gt-md="5"
+                md-row-height-gt-md="1:1" md-row-height="2:2"
+                md-gutter="12px" md-gutter-gt-sm="8px" >
+            <md-grid-tile ng-repeat="image in images" md-rowspan="{{}}" md-colspan="{{}}">
+                <img ng-src="{{image.contentUrl}}" layout-fill>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+</md-content>
+
+
+
+<!--
+<md-toolbar>
+    <div class="md-toolbar-tools" md-whiteframe="2">
+        <h2><span>Fugees-App</span></h2>
+        <span flex></span>
+        <md-button ng-click="showAlert($event)" class="md-icon-button">
+            <md-icon md-svg-icon="icons/add.svg"></md-icon>
+        </md-button>
+        <md-button ng-click="logout()" class="md-icon-button">
+            <md-icon md-svg-icon="icons/logout.svg"></md-icon>
+        </md-button>
+
+    </div>
+</md-toolbar>
+
+<div flex layout="column" style="background-color: #FFFFFF;">
+    <md-table-container>
+        <table md-table>
+            <thead md-head md-order="autoOrder">
+            <tr md-row>
+                <th md-column md-order-by="collab.nomCh">Lastname</th>
+                <th md-column md-order-by="dateDebutPointeuse">Description</th>
+                <th md-column md-order-by="heureDebutPointeuse" md-numeric>Last Update</th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row
+                ng-repeat="famille in familles | orderBy:autoOrder" md-select="famille" md-select-id="lastname"
+                md-auto-select>
+                <td md-cell ng-click="goToListes(famille)">{{famille.nom}}</td>
+                <td md-cell ng-click="goToListes(famille)">{{famille.description}}</td>
+                <td md-cell ng-click="goToListes(famille)">{{famille.update}}</td>
+                <td md-cell>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+
+
+</div>-->

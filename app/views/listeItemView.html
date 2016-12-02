@@ -1,0 +1,119 @@
+<md-toolbar>
+    <div class="md-toolbar-tools" md-whiteframe="2">
+        <md-button ng-click="getBack()" class="md-icon-button">
+            <md-icon md-svg-icon="icons/back.svg"></md-icon>
+        </md-button>
+        <h2><span>List of items</span></h2>
+        <span flex></span>
+        <md-button ng-click="addItem($event)" class="md-icon-button">
+            <md-icon md-svg-icon="icons/add.svg"></md-icon>
+        </md-button>
+        <md-button ng-click="logout()" class="md-icon-button">
+            <md-icon md-svg-icon="icons/logout.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<md-content layout="column" flex>
+    <div flex layout="row" layout-align="center center">
+        <md-card id="card" flex="45" class="md-whiteframe-16dp">
+            <md-card-title>
+                <md-card-title-text layout-align="center center">
+                    <span class="md-display-2"><b>{{famille.nom}}</b></span>
+                    <span class="md-headline"><i>{{famille.description}}</i></span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+
+        <div flex="5"></div>
+
+        <md-list flex="50">
+            <div layout="row">
+                <md-input-container flex="40">
+                    <label>Sort by</label>
+                    <md-select ng-model="selectedTrie">
+                        <md-option ng-repeat="trie in tries" value="{{trie.value}}">
+                            {{trie.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <div flex="5"></div>
+
+                <md-input-container flex>
+                    <md-icon md-svg-icon="icons/search.svg"></md-icon>
+                    <label>Search</label>
+                    <input ng-model="search" type="text">
+                </md-input-container>
+            </div>
+
+            <md-list-item class="md-3-line" ng-repeat="item in items | filter:search | orderBy:selectedTrie"">
+            <img ng-src="{{item.lien_image}}" class="md-avatar"/>
+            <div class="md-list-item-text" layout="column">
+                <h3>{{item.nom}}</h3>
+                <h4>{{item.description}}</h4>
+                <p>{{item.categorie}}</p>
+            </div>
+            <md-icon ng-click="edit()" flex="5" md-svg-icon="icons/edit.svg"></md-icon>
+            <md-icon ng-click="delete()" flex="5" md-svg-icon="icons/delete.svg"></md-icon>
+            </md-list-item>
+        </md-list>
+    </div>
+</md-content>
+
+
+<!--<md-toolbar>
+    <div class="md-toolbar-tools" md-whiteframe="2">
+        <md-button ng-click="getBack()" class="md-icon-button">
+            <md-icon md-svg-icon="icons/back.svg"></md-icon>
+        </md-button>
+        <h2><span>Liste of items</span></h2>
+        <span flex></span>
+        <md-button ng-click="addItem($event)" class="md-icon-button">
+            <md-icon md-svg-icon="icons/add.svg"></md-icon>
+        </md-button>
+        <md-button ng-click="logout()" class="md-icon-button">
+            <md-icon md-svg-icon="icons/logout.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<md-content layout="column" flex>
+
+
+    <div layout="row">
+        <md-input-container flex=50>
+            <md-icon md-svg-icon="icons/search.svg"></md-icon>
+            <label>Recherche</label>
+            <input ng-model="search" type="text">
+        </md-input-container>
+        <md-input-container flex>
+            <md-icon md-svg-icon="icons/filter.svg"></md-icon>
+            <label>Trier par</label>
+            <md-select ng-model="selectedTrie">
+                <md-option ng-repeat="trie in tries" value="{{trie.value}}">
+                    {{trie.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+
+    <div flex >
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="item in items | filter:search | orderBy:selectedTrie"">
+                <img ng-src="{{item.lien_image}}" class="md-avatar"/>
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{item.nom}}</h3>
+                    <h4>{{item.description}}</h4>
+                    <p>{{item.categorie}}</p>
+                </div>
+                <md-icon ng-click="edit()" flex="5" md-svg-icon="icons/edit.svg"></md-icon>
+                <md-icon ng-click="delete()" flex="5" md-svg-icon="icons/delete.svg"></md-icon>
+            </md-list-item>
+        </md-list>
+
+    </div>
+
+
+</md-content>-->
+

@@ -1,0 +1,55 @@
+<md-toolbar>
+    <div class="md-toolbar-tools" md-whiteframe="2">
+        <span>Refugees.com</span>
+    </div>
+</md-toolbar>
+
+<div layout="row" layout-align="center center">
+	<md-content layout="column" flex="30" layout-margin>
+		<h2 class="md-headline">Login</h2>
+		<md-input-container>
+			<md-icon md-svg-src="icons/email.svg" aria-label="email "></md-icon>
+			<label>Mail</label>
+			<input ng-model="login.mail" name="mail" type="mail" required>
+		</md-input-container>
+
+		<md-input-container>
+			<md-icon md-svg-src="icons/key.svg" aria-label="password "></md-icon>
+			<label>Password</label>
+			<input ng-model="login.password" name="psw" type="password" required>
+		</md-input-container>
+
+		<md-button ng-click="loginSend()" class="md-primary md-cornered md-raised"/>Sign in</md-button>
+	</md-content>
+
+	<div flex="20"></div>
+
+	<md-content layout="column" flex="40" layout-margin>
+		<h2 class="md-headline">Register now</h2>
+		<md-input-container>
+			<md-icon md-svg-src="icons/personblack.svg" aria-label="person "></md-icon>
+			<label>First name</label>
+			<input ng-model="reg.prenom" name="nom" type="text" required ng-minlength="2" ng-maxlenght="20"/>
+		</md-input-container>
+
+		<md-input-container>
+			<md-icon md-svg-src="icons/people.svg" aria-label="people"></md-icon>
+			<label>Last name</label>
+			<input ng-model="reg.nom" name="prenom" type="text" required ng-minlength="2" ng-maxlength="30">
+		</md-input-container>
+
+		<md-input-container>
+			<md-icon md-svg-src="icons/email.svg" aria-label="email "></md-icon>
+			<label>Mail</label>
+			<input ng-model="reg.mail" name="mail" type="mail" required>
+		</md-input-container>
+
+		<md-input-container>
+			<md-icon md-svg-src="icons/key.svg" aria-label="password "></md-icon>
+			<label>Password</label>
+			<input ng-model="reg.password" name="password" type="password" required>
+		</md-input-container>
+
+		<md-button ng-click="signUp()" class="md-primary md-cornered md-raised"/>Sign up</md-button>
+</md-content>
+</div>

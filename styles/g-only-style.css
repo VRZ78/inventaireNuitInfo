@@ -1,0 +1,17 @@
+md-toast.md-success-toast-theme .md-toast-content {
+    background-color: green;
+}
+md-toast.md-error-toast-theme .md-toast-content {
+    background-color: red;
+}
+md-toast.md-info-toast-theme .md-toast-content {
+    background-color: blue;
+}
+
+#card {
+	background-color: rgb(63,81,181);
+	color           : rgba(255,255,255,0.87);
+	padding-top     : 50px;
+	padding-bottom  : 50px;
+	text-align: center;
+}
